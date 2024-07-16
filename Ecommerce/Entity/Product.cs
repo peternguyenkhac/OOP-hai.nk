@@ -10,7 +10,7 @@ namespace Ecommerce.Entity
     {
         public string Name { get; set; }
         public int CategoryId { get; set; }
-
+        //In
         public override void Print()
         {
             Console.WriteLine($"Product: Id: {this.Id}, Name: {this.Name}, CategoryId: {this.CategoryId}");

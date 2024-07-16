@@ -9,6 +9,7 @@ namespace Ecommerce.Entity
     public class Accessory : BaseRow
     {
         public string Name { get; set; }
+        //In
         public override void Print()
         {
             Console.WriteLine($"Accessory: Id: {this.Id}, Name: {this.Name}");

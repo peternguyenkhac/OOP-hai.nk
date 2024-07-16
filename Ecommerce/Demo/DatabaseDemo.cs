@@ -23,6 +23,7 @@ namespace Ecommerce.Demo
             _database = Database.Instance;
         }
 
+        //Khởi tạo DB
         public void InitDatabase()
         {
             // init database
@@ -55,6 +56,7 @@ namespace Ecommerce.Demo
             }
         }
 
+        //In ra dữ liệu trong bảng
         public void PrintTableTest<T>() where T : BaseRow
         {
             Console.WriteLine($"========= {typeof(T).Name} =========");
@@ -72,6 +74,7 @@ namespace Ecommerce.Demo
             }
         }
 
+        //Thêm 
         public void InsertTableTest()
         {
             Product product = new Product()
@@ -84,6 +87,7 @@ namespace Ecommerce.Demo
             _productDAO.Insert(product);
         }
 
+        //Sửa
         public void UpdateTableTest()
         {
             Product product = new Product()
@@ -96,12 +100,14 @@ namespace Ecommerce.Demo
             _productDAO.Update(product);
         }
 
+        //Xoá
         public void DeleteTableTest()
         {
             int id = 2;
             _database.DeleteTable<Product>(id);
         }
 
+        //Xoá toàn bộ dữ liệu
         public void TruncateTable()
         {
             _productDAO.Clear();

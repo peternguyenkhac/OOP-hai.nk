@@ -15,8 +15,20 @@ namespace Ecommerce.DAO
         public List<Category> CategoryTable { get; set; }
         public List<Accessory> AccessoryTable { get; set; }
 
-        private static Database instance;
-        public static Database Instance => instance ?? (instance = new Database());
+        //Singleton pattern
+        //Tham chiếu đến 1 database duy nhất
+        private static Database instance; 
+        // nếu instance null -> tạo mới và return instance
+        public static Database Instance { 
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Database();
+                }
+                return instance;
+            }
+        }
 
         public Database()
         {
@@ -25,6 +37,8 @@ namespace Ecommerce.DAO
             AccessoryTable = new List<Accessory>();
         }
 
+        //Lấy ra bảng theo kiểu dữ liệu
+        //VD: Type Product -> ProductTable
         public List<T> Get<T>() where T : BaseRow
         {
             return (List<T>)typeof(Database)
@@ -33,17 +47,20 @@ namespace Ecommerce.DAO
                 .GetValue(this); // get value của prop được select
         }
 
+        //Thêm 
         public int InsertTable<T>(T row) where T : BaseRow
         {
             Get<T>().Add(row);
             return row.Id;
         }
 
+        //Lấy toàn bộ dữ liệu trong bảng
         public List<T> SelectTable<T>() where T : BaseRow
         {
             return Get<T>();
         }
 
+        //Sửa
         public int UpdateTable<T>(T row) where T : BaseRow
         {
             var record = Get<T>().Find(r => r.Id == row.Id);
@@ -66,6 +83,8 @@ namespace Ecommerce.DAO
                 throw new Exception("Can not find row");
             }
         }
+
+        //Xoá theo Id
         public bool DeleteTable<T>(int id) where T : BaseRow
         {
             var record = Get<T>().Find(r => r.Id == id);
@@ -80,7 +99,7 @@ namespace Ecommerce.DAO
             }
         }
 
-
+        //Xoá toàn bộ dữ liệu trong bảng
         public void TruncateTable<T>() where T : BaseRow
         {
             Get<T>().Clear();

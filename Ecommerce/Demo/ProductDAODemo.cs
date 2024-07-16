@@ -18,6 +18,7 @@ namespace Ecommerce.Demo
             _productDAO = _productDAO;
         }
 
+        //Thêm
         public void InsertTest()
         {
             Product product = new Product()
@@ -29,6 +30,7 @@ namespace Ecommerce.Demo
             _productDAO.Insert(product);
         }
 
+        //Sửa
         public void UpdateTest()
         {
             Product product = new Product()
@@ -39,12 +41,14 @@ namespace Ecommerce.Demo
             _productDAO.Update(product);
         }
 
+        //Xoá
         public void DeleteTest()
         {
             int id = 3;
             _productDAO.Delete(id);
         }
 
+        //Tìm theo tên
         public void FindByNameTest()
         {
             string name = "Product 3";
@@ -53,6 +57,7 @@ namespace Ecommerce.Demo
             product.Print();
         }
 
+        //Tìm theo Id
         public void FindByIdTest()
         {
             int id = 4;

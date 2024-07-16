@@ -18,6 +18,7 @@ namespace Ecommerce.Demo
             _categoryDAO = categoryDAO;
         }
 
+        //Thêm
         public void InsertTest()
         {
             Category category = new Category()
@@ -28,6 +29,7 @@ namespace Ecommerce.Demo
             _categoryDAO.Insert(category);
         }
 
+        //Sửa
         public void UpdateTest()
         {
             Category category = new Category()
@@ -38,12 +40,14 @@ namespace Ecommerce.Demo
             _categoryDAO.Update(category);
         }
 
+        //Xoá
         public void DeleteTest()
         {
             int id = 2;
             _categoryDAO.Delete(id);
         }
 
+        //Tìm theo tên
         public void FindByNameTest()
         {
             string name = "Category 3";
@@ -52,6 +56,7 @@ namespace Ecommerce.Demo
             category.Print();
         }
 
+        //Tìm theo Id
         public void FindByIdTest()
         {
             int id = 4;

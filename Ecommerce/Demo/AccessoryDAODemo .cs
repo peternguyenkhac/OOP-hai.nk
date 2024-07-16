@@ -18,6 +18,7 @@ namespace Ecommerce.Demo
             _accessoryDAO = accessoryDAO;
         }
 
+        //Thêm
         public void InsertTest()
         {
             Accessory accessory = new Accessory()
@@ -28,6 +29,7 @@ namespace Ecommerce.Demo
             _accessoryDAO.Insert(accessory);
         }
 
+        //Sửa
         public void UpdateTest()
         {
             Accessory accessory = new Accessory()
@@ -38,12 +40,14 @@ namespace Ecommerce.Demo
             _accessoryDAO.Update(accessory);
         }
 
+        //Xoá
         public void DeleteTest()
         {
             int id = 2;
             _accessoryDAO.Delete(id);
         }
 
+        //Tìm theo tên
         public void FindByNameTest()
         {
             string name = "Accessory 4";
@@ -52,6 +56,7 @@ namespace Ecommerce.Demo
             accessory.Print();
         }
 
+        //Tìm theo Id
         public void FindByIdTest()
         {
             int id = 4;

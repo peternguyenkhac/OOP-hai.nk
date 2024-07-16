@@ -9,6 +9,7 @@ namespace Ecommerce.Interface
 {
     public interface IEntity
     {
+        //In
         void Print();
     }
 }
