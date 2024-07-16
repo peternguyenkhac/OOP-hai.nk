@@ -10,7 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Ecommerce.DAO
 {
-    public class BaseDAO<T> : IDAO<T> where T : BaseRow
+    public abstract class BaseDAO<T> : IDAO<T> where T : BaseRow
     {
         protected readonly Database _database;
 

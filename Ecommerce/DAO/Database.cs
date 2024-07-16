@@ -15,8 +15,6 @@ namespace Ecommerce.DAO
         public List<Category> CategoryTable { get; set; }
         public List<Accessory> AccessoryTable { get; set; }
 
-        private IDictionary<Type, object>? _sets;
-
         private static Database instance;
         public static Database Instance => instance ?? (instance = new Database());
 
@@ -81,6 +79,8 @@ namespace Ecommerce.DAO
                 return false;
             }
         }
+
+
         public void TruncateTable<T>() where T : BaseRow
         {
             Get<T>().Clear();
